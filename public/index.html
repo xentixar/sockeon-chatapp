@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="m-4">
+<main class="flex flex-col w-full border border-gray-500">
+    <div class="h-[88vh] bg-gray-100 px-2 overflow-hidden overflow-y-auto" id="chat">
+    </div>
+    <div class="p-2 text-gray-600 text-sm bg-gray-100" id="typing-indicator">
+        <i>...</i>
+    </div>
+    <form id="send-message-form" class="flex items-center w-full">
+        <input type="text" id="message" class="border border-gray-300 px-2 py-[7px] w-full"
+               placeholder="Send a message...">
+        <button type="submit" class="bg-blue-500 px-3 py-2 text-white" >Send</button>
+    </form>
+</main>
+
+<script src="chat.js"></script>
+</body>
+</html>
