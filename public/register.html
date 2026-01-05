@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register User</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<main class="flex justify-center items-center h-screen">
+    <div class="w-[500px]">
+        <h1 class="m-3 text-center text-2xl">Create Account</h1>
+        <form id="register-form" class="bg-slate-50 p-4 rounded flex flex-col gap-5">
+            <div class="flex flex-col gap-2">
+                <label for="name">Name <strong class="text-red-600">*</strong></label>
+                <input type="text" id="name" class="border border-gray-300 py-1 px-2 outline-none"
+                       placeholder="Enter your name..." required>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="email">Email <strong class="text-red-600">*</strong></label>
+                <input type="email" id="email" class="border border-gray-300 py-1 px-2 outline-none"
+                       placeholder="Enter your email..." required>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="password">Password <strong class="text-red-600">*</strong></label>
+                <input type="password" id="password" class="border border-gray-300 py-1 px-2 outline-none"
+                       placeholder="Enter your password..." required>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="password_confirmation">Confirm password <strong class="text-red-600">*</strong></label>
+                <input type="password" id="password_confirmation" class="border border-gray-300 py-1 px-2 outline-none"
+                       placeholder="Re enter your password..." required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-1.5 rounded cursor-pointer">Register</button>
+        </form>
+    </div>
+</main>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

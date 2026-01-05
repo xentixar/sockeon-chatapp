@@ -1,3 +1,12 @@
+import {api} from "./api.js";
+
+api('/api/user', 'GET', {}, true)
+    .then(response => {
+        if (!response) {
+            location.href = 'login.html?msg=unauthorized'
+        }
+    })
+
 const socket = new WebSocket('ws://localhost:6001')
 let typingSetTimeout = null
 

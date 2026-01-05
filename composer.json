@@ -1,6 +1,7 @@
 {
     "require": {
-        "sockeon/sockeon": "^2.3"
+        "sockeon/sockeon": "^2.3",
+        "ext-pdo": "*"
     },
     "autoload": {
         "psr-4": {
