@@ -39,7 +39,6 @@ class StaticController extends SocketController
 
     private static function getContentType(string $extension): string
     {
-        print_r($extension);
         return match ($extension) {
             'html' => 'text/html',
             'css' => 'text/css',

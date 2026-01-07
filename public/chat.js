@@ -7,7 +7,7 @@ api('/api/user', 'GET', {}, true)
         }
     })
 
-const socket = new WebSocket('ws://localhost:6001')
+const socket = new WebSocket('ws://localhost:6001?authToken=' + localStorage.getItem('access_token'))
 let typingSetTimeout = null
 
 const handleConnectedEvent = ({message, clientId}) => {
@@ -20,6 +20,7 @@ const handleMessageReceivedEvent = ({message, username, timestamps, is_me}) => {
     } else {
         renderReceivedMessage({username, message, timestamps});
     }
+    document.querySelector('#chat').scrollTop = document.querySelector('#chat').scrollHeight;
 }
 
 const handleMessageTypingStartReceived = ({clientId}) => {
@@ -91,6 +92,21 @@ const emit = (event, data) => {
 
 socket.addEventListener('open', function (event) {
     console.info("Socket is connected!!")
+
+    api('/api/messages', 'GET', {}, true)
+        .then(response => {
+            response.data.forEach(message => {
+                if (message.is_me) {
+                    renderSentMessage(message)
+                } else {
+                    renderReceivedMessage(message)
+                }
+            })
+        })
+        .finally(function () {
+            document.querySelector('#chat').scrollTop = document.querySelector('#chat').scrollHeight;
+        })
+
 });
 
 socket.addEventListener('message', function (event) {
@@ -105,6 +121,8 @@ sendMessageForm.addEventListener('submit', function (event) {
     emit('send.message', {
         message: message.value
     })
+
+    document.querySelector('#message').value = "";
 });
 
 const message = document.querySelector('#message');

@@ -19,8 +19,8 @@ class UserRepository extends BaseRepository
 
     public function get(): array
     {
-        $rows = $this->database->query('SELECT * FROM users');
-        return $rows->fetchAll(PDO::FETCH_ASSOC);
+        $statement = $this->database->query('SELECT * FROM users');
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function first(string $field, string $value): array|bool
